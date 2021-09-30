@@ -19,7 +19,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 <img src="https://media.giphy.com/media/GGIjzR9JFRnmcd5ZMl/giphy.gif?cid=790b7611416997b154b0ed02a27b1645b032cb8f0ff9100f&rid=giphy.gif&ct=g" width=250><br>
 
 ### Notes
-Describe any challenges encountered while building the app.
+The tab bar controller addition originally turned my entire app into a black screen, but after debugging I found out I needed to check "Is Initial View Controller" to make it work.
 
 ---
 
