@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var movies = [[String:Any]]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 150
+        tableView.rowHeight = 180
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     // TODO: Store the movies in a property to use elsewhere
                     // TODO: Reload your table view data
                  self.tableView.reloadData()
-                 print(dataDictionary)
 
              }
         }
@@ -62,5 +61,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.posterView.af_setImage(withURL: posterURL!)
         return cell
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+        //find selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
 
